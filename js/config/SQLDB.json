@@ -1,5 +1,5 @@
 {
-  "database": "eth_wallet",
+  "database": "CCDB",
   "protocol": "mysql",
   "host": "127.0.0.1",
   "username": "root",
