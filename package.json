@@ -1,6 +1,6 @@
 {
-  "name": "express",
-  "version": "0.0.0",
+  "name": "index.js",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "node app.js"
@@ -14,10 +14,28 @@
     "morgan": "~1.8.1",
     "serve-favicon": "~2.4.2",
     "web3": "^0.19.1",
-    "keythereum" : "^1.0.1",
+    "keythereum": "^1.0.1",
     "request": "^2.81.0",
-    "eth-lightwallet" : "^2.5.6",
-    "hooked-web3-provider" : "^1.0.0",
+    "eth-lightwallet": "^2.5.6",
+    "hooked-web3-provider": "^1.0.0",
     "orm": "3.2.3"
-  }
+  },
+  "description": "ccapi",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.15.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Charlotte1018/CCApi.git"
+  },
+  "keywords": [
+    "ccapi"
+  ],
+  "author": "lin.chen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Charlotte1018/CCApi/issues"
+  },
+  "homepage": "https://github.com/Charlotte1018/CCApi#readme"
 }
