@@ -6,29 +6,29 @@ var router = express.Router();
 var sqlDBUtils = require('../../js/sqlDBUtils');
 
 router.post("/create", function(req, res) {
-    var banner = req.body;
-    var bannerModel = sqlDBUtils.getModels().banner;
-    console.log(banner);
-    bannerModel.create(banner, (err) => {
+    var icolist = req.body;
+    var icolistModel = sqlDBUtils.getModels().icolist;
+    console.log(icolist);
+    icolistModel.create(icolist, (err) => {
         if (err) throw err;
         res.send({
             "status":0,
-            "result": banner
+            "result": icolist
         });
     });
 });
 
 router.post("/update/:id", function(req, res) {
     var id = req.params.id;
-    var newbanner = req.body;
-    var bannerModel = sqlDBUtils.getModels().banner;
-    bannerModel.find({id: id}, (err, result) => {
+    var newicolist = req.body;
+    var icolistModel = sqlDBUtils.getModels().icolist;
+    icolistModel.find({id: id}, (err, result) => {
         if (err) throw err;
         if (!result || !result.length) {
             res.send([]);
             return;
         }
-        result = Object.assign(result[0], newbanner);
+        result = Object.assign(result[0], newicolist);
         result.save(function(err) {
             res.send({
                 "status":"0",
@@ -40,8 +40,8 @@ router.post("/update/:id", function(req, res) {
 
 router.get("/:id", function(req, res) {
     var id = req.params.id;
-    var bannerModel = sqlDBUtils.getModels().banner;
-    bannerModel.find({id: id}, (err, result) => {
+    var icolistModel = sqlDBUtils.getModels().icolist;
+    icolistModel.find({id: id}, (err, result) => {
         if (err) throw err;
         res.send(result);
     });

@@ -8,6 +8,11 @@ app.use(bodyParser.urlencoded({extended: false}));
 var orm = require("orm");
 var userApi = require('./js/routes/userApi');
 var bannerApi = require('./js/routes/bannerApi');
+var icoListApi = require('./js/routes/icoListApi');
+var icoDetailsApi = require('./js/routes/icoDetailsApi');
+var eventListApi = require('./js/routes/eventListApi');
+
+
 var sqlDBConfig = require("./js/config/SQLDB.json");
 var sqlDBUtils = require('./js/sqlDBUtils');
 
@@ -31,6 +36,9 @@ app.use(orm.express(sqlDBConfig, {
 
 app.use('/userAPI', userApi);
 app.use('/bannerApi',bannerApi);
+app.use('/icoListApi',icoListApi);
+app.use('/icoDetailsApi',icoDetailsApi);
+app.use('/eventListApi',eventListApi);
 
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!')

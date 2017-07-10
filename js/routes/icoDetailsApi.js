@@ -6,29 +6,29 @@ var router = express.Router();
 var sqlDBUtils = require('../../js/sqlDBUtils');
 
 router.post("/create", function(req, res) {
-    var banner = req.body;
-    var bannerModel = sqlDBUtils.getModels().banner;
-    console.log(banner);
-    bannerModel.create(banner, (err) => {
+    var icodetails = req.body;
+    var icodetailsModel = sqlDBUtils.getModels().icodetails;
+    console.log(icodetails);
+    icodetailsModel.create(icodetails, (err) => {
         if (err) throw err;
         res.send({
             "status":0,
-            "result": banner
+            "result": icodetails
         });
     });
 });
 
 router.post("/update/:id", function(req, res) {
     var id = req.params.id;
-    var newbanner = req.body;
-    var bannerModel = sqlDBUtils.getModels().banner;
-    bannerModel.find({id: id}, (err, result) => {
+    var newicodetails = req.body;
+    var icodetailsModel = sqlDBUtils.getModels().icodetails;
+    icodetailsModel.find({id: id}, (err, result) => {
         if (err) throw err;
         if (!result || !result.length) {
             res.send([]);
             return;
         }
-        result = Object.assign(result[0], newbanner);
+        result = Object.assign(result[0], newicodetails);
         result.save(function(err) {
             res.send({
                 "status":"0",
@@ -40,8 +40,8 @@ router.post("/update/:id", function(req, res) {
 
 router.get("/:id", function(req, res) {
     var id = req.params.id;
-    var bannerModel = sqlDBUtils.getModels().banner;
-    bannerModel.find({id: id}, (err, result) => {
+    var icodetailsModel = sqlDBUtils.getModels().icodetails;
+    icodetailsModel.find({id: id}, (err, result) => {
         if (err) throw err;
         res.send(result);
     });
