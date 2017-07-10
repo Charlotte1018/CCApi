@@ -40,6 +40,6 @@ app.use('/icoListApi',icoListApi);
 app.use('/icoDetailsApi',icoDetailsApi);
 app.use('/eventListApi',eventListApi);
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
+app.listen(3001, function () {
+  console.log('Example app listening on port 3001!')
 });

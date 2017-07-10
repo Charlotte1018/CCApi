@@ -1,5 +1,5 @@
 module.exports = function (db, models) {
-    models.banner = db.define('BANNER', {
+    models.banner = db.define('Banner', {
         id: {type: 'serial', key: true},
         name: {type: 'text', mapsTo: 'NAME'},
         path: {type:'text', mapsTo: 'path'},
