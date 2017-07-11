@@ -7,6 +7,8 @@ var sqlDBUtils = require('../../js/sqlDBUtils');
 
 router.post("/create", function(req, res) {
     res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods","POST");
+    res.setHeader("Access-Control-Allow-Headers","x-requested-with,content-type");
     var eventlist = req.body;
     var eventlistModel = sqlDBUtils.getModels().eventlist;
     console.log(eventlist);
@@ -21,6 +23,8 @@ router.post("/create", function(req, res) {
 
 router.post("/update/:id", function(req, res) {
     res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods","POST");
+    res.setHeader("Access-Control-Allow-Headers","x-requested-with,content-type");
     var id = req.params.id;
     var neweventlist = req.body;
     var eventlistModel = sqlDBUtils.getModels().eventlist;

@@ -7,6 +7,8 @@ var sqlDBUtils = require('../../js/sqlDBUtils');
 
 router.post("/create", function(req, res) {
     res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods","POST");
+    res.setHeader("Access-Control-Allow-Headers","x-requested-with,content-type");
     var icodetails = req.body;
     var icodetailsModel = sqlDBUtils.getModels().icodetails;
     console.log(icodetails);
@@ -21,6 +23,8 @@ router.post("/create", function(req, res) {
 
 router.post("/update/:id", function(req, res) {
     res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods","POST");
+    res.setHeader("Access-Control-Allow-Headers","x-requested-with,content-type");
     var id = req.params.id;
     var newicodetails = req.body;
     var icodetailsModel = sqlDBUtils.getModels().icodetails;
