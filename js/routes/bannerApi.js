@@ -6,6 +6,7 @@ var router = express.Router();
 var sqlDBUtils = require('../../js/sqlDBUtils');
 
 router.post("/create", function(req, res) {
+    res.setHeader("Access-Control-Allow-Origin", "*");
     var banner = req.body;
     var bannerModel = sqlDBUtils.getModels().banner;
     console.log(banner);
@@ -19,6 +20,7 @@ router.post("/create", function(req, res) {
 });
 
 router.post("/update/:id", function(req, res) {
+    res.setHeader("Access-Control-Allow-Origin", "*");
     var id = req.params.id;
     var newbanner = req.body;
     var bannerModel = sqlDBUtils.getModels().banner;
@@ -39,6 +41,7 @@ router.post("/update/:id", function(req, res) {
 });
 
 router.get("/:id", function(req, res) {
+    res.setHeader("Access-Control-Allow-Origin", "*");
     var id = req.params.id;
     var bannerModel = sqlDBUtils.getModels().banner;
     bannerModel.find({id: id}, (err, result) => {
@@ -46,5 +49,16 @@ router.get("/:id", function(req, res) {
         res.send(result);
     });
 });
+
+router.get("/", function(req, res) {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    var bannerModel = sqlDBUtils.getModels().banner;
+
+    bannerModel.find({}, (err, result) => {
+        if (err) throw err;
+        res.send(result);
+    });
+});
+
 
 module.exports = router;
