@@ -6,6 +6,7 @@ var router = express.Router();
 var sqlDBUtils = require('../../js/sqlDBUtils');
 
 router.post("/create", function(req, res) {
+    res.setHeader("Access-Control-Allow-Origin", "*");
     var eventlist = req.body;
     var eventlistModel = sqlDBUtils.getModels().eventlist;
     console.log(eventlist);
@@ -19,6 +20,7 @@ router.post("/create", function(req, res) {
 });
 
 router.post("/update/:id", function(req, res) {
+    res.setHeader("Access-Control-Allow-Origin", "*");
     var id = req.params.id;
     var neweventlist = req.body;
     var eventlistModel = sqlDBUtils.getModels().eventlist;
@@ -39,9 +41,20 @@ router.post("/update/:id", function(req, res) {
 });
 
 router.get("/:id", function(req, res) {
+    res.setHeader("Access-Control-Allow-Origin", "*");
     var id = req.params.id;
     var eventlistModel = sqlDBUtils.getModels().eventlist;
     eventlistModel.find({id: id}, (err, result) => {
+        if (err) throw err;
+        res.send(result);
+    });
+});
+
+router.get("/", function(req, res) {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+
+    var eventlistModel = sqlDBUtils.getModels().eventlist;
+    eventlistModel.find({}, (err, result) => {
         if (err) throw err;
         res.send(result);
     });
