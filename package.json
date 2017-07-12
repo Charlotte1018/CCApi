@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node app.js"
+    "start": "supervisor node app.js"
   },
   "devDependencies": {
     "body-parser": "~1.17.1",
@@ -18,6 +18,7 @@
     "request": "^2.81.0",
     "eth-lightwallet" : "^2.5.6",
     "hooked-web3-provider" : "^1.0.0",
-    "orm": "3.2.3"
+    "orm": "3.2.3",
+    "supervisor":"^0.12.0"
   }
 }
