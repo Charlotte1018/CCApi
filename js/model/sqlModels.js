@@ -52,6 +52,15 @@ module.exports = function (db, models) {
         lastModifyUser: {type:'text', mapsTo: 'lastModifyUser'}
     });
 
+    models.user = db.define('USER', {
+        id: {type: 'serial', key: true},
+        name: {type: 'text', mapsTo: 'NAME'},
+        email: {type:'text', mapsTo: 'EMAIL'},
+        phone: {type:'text', mapsTo: 'PHONE'},
+        password: {type:'text',mapsTo: 'PASSWORD'}
+    });
+
+
 
 
     models.db = db;

@@ -4,9 +4,16 @@
 var express = require("express");
 var router = express.Router();
 var sqlDBUtils = require('../../js/sqlDBUtils');
+var md5 = require('md5');
+
 
 router.post("/create", function(req, res) {
     var user = req.body;
+
+    var password = user.password;
+    var md5Psw = md5(password);
+    user.password = md5Psw;
+
     var userModel = sqlDBUtils.getModels().user;
     console.log(user);
     // console.log(userModel);
@@ -18,6 +25,21 @@ router.post("/create", function(req, res) {
         });
     });
 });
+
+router.post("/login",function(req,res){
+    var name = req.body.name;
+    var password = req.body.password;
+    var md5Psw = md5(password);
+
+    var userModel = sqlDBUtils.getModels().user;
+    userModel.find({name: name},1, (err, result) => {
+        if (err) throw err;
+        // console.log(result[0].password);
+        if (result[0].password == md5Psw)
+            res.send(true);
+        else res.send(false);
+    });
+})
 
 router.post("/update/:id", function(req, res) {
     var id = req.params.id;
@@ -48,8 +70,15 @@ router.get("/:id", function(req, res) {
     });
 });
 
-router.get("/stevenkcolin",function(req,res){
-    res.send("hello stevenkcolin");
-})
+router.get("/", function(req, res) {
+    var id = req.params.id;
+    var userModel = sqlDBUtils.getModels().user;
+    userModel.find({}, (err, result) => {
+        if (err) throw err;
+        res.send(result);
+    });
+});
+
+
 
 module.exports = router;
