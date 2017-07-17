@@ -7,6 +7,7 @@ module.exports = function (db, models) {
         status: {type:'text', mapsTo: 'status'},
         startDate: {type:'text', mapsTo: 'startDate'},
         endDate: {type:'text', mapsTo: 'endDate'},
+        isDeleted : {type:'text',mapsTo: 'isDeleted'},
 
         lastModifyDate: {type:'text', mapsTo: 'lastModifyDate'},
         lastModifyUser: {type:'text', mapsTo: 'lastModifyUser'}
@@ -21,6 +22,7 @@ module.exports = function (db, models) {
         startDate: {type:'text', mapsTo: 'startDate'},
         endDate: {type:'text', mapsTo: 'endDate'},
         description: {type:'text', mapsTo: 'description'},
+        isDeleted : {type:'text',mapsTo: 'isDeleted'},
 
         lastModifyDate: {type:'text', mapsTo: 'lastModifyDate'},
         lastModifyUser: {type:'text', mapsTo: 'lastModifyUser'}
@@ -36,6 +38,7 @@ module.exports = function (db, models) {
         icoWhitePaperPath: {type:'text', mapsTo: 'icoWhitePaperPath'},
         icoDistribution: {type:'text', mapsTo: 'icoDistribution'},
         icoTeamMember: {type:'text', mapsTo: 'icoTeamMember'},
+        isDeleted : {type:'text',mapsTo: 'isDeleted'},
 
         lastModifyDate: {type:'text', mapsTo: 'lastModifyDate'},
         lastModifyUser: {type:'text', mapsTo: 'lastModifyUser'}
@@ -47,6 +50,7 @@ module.exports = function (db, models) {
         eventDate: {type:'text', mapsTo: 'eventDate'},
         eventLocation: {type:'text', mapsTo: 'eventLocation'},
         eventURL: {type:'text', mapsTo: 'eventURL'},
+        isDeleted : {type:'text',mapsTo: 'isDeleted'},
 
         lastModifyDate: {type:'text', mapsTo: 'lastModifyDate'},
         lastModifyUser: {type:'text', mapsTo: 'lastModifyUser'}

@@ -12,6 +12,7 @@ CREATE TABLE `CCDB`.`Banner` (
   `endDate` TIMESTAMP NULL, -- Format: YYYY-MM-DD HH:MI:SS
   `lastModifyDate` TIMESTAMP NULL,
   `lastModifyUser` VARCHAR(45) null,
+  `isDeleted` INT NULL,
 
   PRIMARY KEY (`id`)
 );
@@ -26,6 +27,7 @@ CREATE TABLE `CCDB`.`ICOList` (
   `startDate` TIMESTAMP NULL, -- Format: YYYY-MM-DD HH:MI:SS
   `endDate` TIMESTAMP NULL, -- Format: YYYY-MM-DD HH:MI:SS
   `description` TEXT NULL,
+  `isDeleted` INT NULL, -- 0: not deleted, 1: deleted
 
   `lastModifyDate` TIMESTAMP NULL,
   `lastModifyUser` VARCHAR(45) null,
@@ -44,6 +46,7 @@ CREATE TABLE `CCDB`.`ICODetails` (
   `icoWhitePaperPath` varchar(200) NULL,
   `icoDistribution` TEXT null,
   `icoTeamMember` TEXT null,
+  `isDeleted` INT NULL, -- 0: not deleted, 1: deleted
 
   `lastModifyDate` TIMESTAMP NULL,
   `lastModifyUser` VARCHAR(45) null,
@@ -58,6 +61,7 @@ CREATE TABLE `CCDB`.`EventList` (
   `eventDate` TIMESTAMP NULL,
   `eventLocation` varchar(200) null,
   `eventURL` varchar(500) null,
+  `isDeleted` INT NULL, -- 0: not deleted, 1: deleted
 
   `lastModifyDate` TIMESTAMP NULL,
   `lastModifyUser` VARCHAR(45) null,
