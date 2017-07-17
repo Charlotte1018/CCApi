@@ -44,6 +44,32 @@ router.post("/update/:id", function(req, res) {
     });
 });
 
+router.post("/delete/:id",function(req,res){
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods","POST");
+    res.setHeader("Access-Control-Allow-Headers","x-requested-with,content-type");
+
+    var id = req.params.id;
+    var eventlistModel = sqlDBUtils.getModels().eventlist;
+    eventlistModel.find({id:id},(err,result) => {
+        if (err) throw err;
+        if (!result || !result.length) {
+            res.send([]);
+            return;
+        }
+
+        result = Object.assign(result[0]);
+        result.isDeleted = "1";
+        result.save(function(err){
+            res.send({
+                "status":"0",
+                "result":result
+            })
+        })
+    })
+})
+
+
 router.get("/:id", function(req, res) {
     res.setHeader("Access-Control-Allow-Origin", "*");
     var id = req.params.id;
@@ -58,7 +84,7 @@ router.get("/", function(req, res) {
     res.setHeader("Access-Control-Allow-Origin", "*");
 
     var eventlistModel = sqlDBUtils.getModels().eventlist;
-    eventlistModel.find({}, (err, result) => {
+    eventlistModel.find({isDeleted:0}, (err, result) => {
         if (err) throw err;
         res.send(result);
     });
